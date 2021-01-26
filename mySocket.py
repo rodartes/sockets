@@ -12,10 +12,10 @@ myPort = 80
 
 mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 mySocket.connect((myHost, myPort))
-mySocket.sendall(myRequest.encode())
-data = mySocket.recv(1024).decode()
+mySocket.send(myRequest.encode())
+data = mySocket.recv(1024)
 
 #3. close socket and print the server's response
 
 mySocket.close()
-print('[RECV]-', repr(data))
+print('[RECV]-', data.decode())
